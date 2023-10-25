@@ -8,26 +8,29 @@ import tn.esprit.gestionfoyerrihabachour.entities.Cours;
 import java.util.List;
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("cours")
 public class CoursController {
     private final ICoursService coursService;
 
-    @RequestMapping(value = "/AddCours", method = RequestMethod.POST)
-    public String addCours(@ModelAttribute("cours") Cours cours) {
+    @PostMapping
+    public Cours AddInscription(@RequestBody Cours cours) {
         coursService.addCours(cours);
-        return "redirect:/";
+        return cours;
     }
-    @GetMapping("delete/{numCours}")
-    public void delete(@PathVariable("numcours")long numCours)    {
+    @PutMapping
+    public Cours updateInscription(@RequestBody  Cours cours){
+        return coursService.updateCours(cours)
+;    }
+    @DeleteMapping("/{numCours}")
+    public void delete(@RequestBody long  numCours)    {
         coursService.delete(numCours);
     }
-    @GetMapping("/findById/{numCours}")
-    public Cours FindById(@PathVariable("numcours") long numCours){
-
+    @GetMapping("/{numCours}")
+    public Cours FindById(@PathVariable long numCours){
         return coursService. findById(numCours);
     }
-    @GetMapping("/findAllCours")
+    @GetMapping
     public List<Cours> findAll(){
         return coursService.findAll() ;
-
     }
 }

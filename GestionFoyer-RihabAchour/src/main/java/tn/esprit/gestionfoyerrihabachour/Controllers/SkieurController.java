@@ -19,6 +19,10 @@ public class SkieurController {
         skieurService.addSkieur(skieur);
         return skieur;
     }
+    @PutMapping
+    public Skieur updateSkieur (@RequestBody  Skieur skieur){
+        return skieurService.updateSkieur(skieur);
+    }
     @DeleteMapping("/{numSkieur}")
     public void delete(@RequestBody long  numSkieur)    {
         skieurService.delete(numSkieur);
@@ -30,10 +34,6 @@ public class SkieurController {
     @GetMapping
     public List<Skieur> findAll(){
         return skieurService.findAll() ;
+    }
 
-    }
-    @PutMapping
-    public Skieur updateSkieur (@RequestBody  Skieur skieur){
-        return skieurService.updateSkieur(skieur);
-    }
 }

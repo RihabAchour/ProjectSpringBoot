@@ -8,28 +8,28 @@ import tn.esprit.gestionfoyerrihabachour.entities.Inscription;
 import java.util.List;
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("inscription")
 public class InscriptionController {
     private final IInscriptionService Inscriptionservice;
-
-
-    @RequestMapping(value = "/AddInscription", method = RequestMethod.POST)
-    public String addInscription(@ModelAttribute("inscription") Inscription inscription) {
+    @PostMapping
+    public Inscription AddInscription(@RequestBody Inscription inscription) {
         Inscriptionservice.addInscription(inscription);
-        return "redirect:/"; //redirigé vers la page d'accueil
-
+        return inscription;
     }
-    @GetMapping("delete/{numInscription}")
-    public void delete(@PathVariable("numInscription")long numInscription)    {
+    @PutMapping
+    public Inscription updateInscription (@RequestBody  Inscription inscription){
+        return Inscriptionservice.updateInscription(inscription);
+    }
+    @DeleteMapping("/{numInscription}")
+    public void delete(@RequestBody long  numInscription)    {
         Inscriptionservice.delete(numInscription);
     }
-    @GetMapping("/findById/{numInscription}")
-    public Inscription FindById(@PathVariable("numInscription") long numInscription){
-
+    @GetMapping("/{numInscription}")
+    public Inscription FindById(@PathVariable long numInscription){
         return Inscriptionservice. findById(numInscription);
     }
-    @GetMapping("/findAllInscription")
+    @GetMapping
     public List<Inscription> findAll(){
         return Inscriptionservice.findAll() ;
-
     }
 }

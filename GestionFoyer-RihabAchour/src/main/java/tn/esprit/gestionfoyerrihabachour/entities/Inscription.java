@@ -23,5 +23,5 @@ public class Inscription {
     @ManyToOne
     Cours cours;
     @ManyToOne
-    tn.esprit.gestionfoyerrihabachour.entities.Skieur Skieur;
+    Skieur Skieur;
 }

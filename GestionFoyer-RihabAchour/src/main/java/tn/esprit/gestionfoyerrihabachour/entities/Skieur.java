@@ -29,7 +29,7 @@ public class Skieur {
     @ManyToMany(cascade = CascadeType.ALL)
     Set<Piste> pisteSet;
     @OneToMany(mappedBy="Skieur")//la meme mot que dans la classe inscription
-    Set <Inscription> insecriptionSet;
+    Set <Inscription> inscriptionSet;
     @OneToOne(cascade = CascadeType.ALL)
     Abonnement abonnement ;
 

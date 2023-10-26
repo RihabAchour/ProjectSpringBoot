@@ -11,4 +11,6 @@ public interface IMoniteurService {
     List<Moniteur> findAll();
     Moniteur findById (long numMoniteur);
     void delete (long numMoniteur);
+
+    Moniteur addInstructorAndAssignToCourse(Moniteur moniteur, long numCours);
 }

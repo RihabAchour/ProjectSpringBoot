@@ -11,4 +11,5 @@ public interface ICoursService {
     List<Cours> findAll();
     Cours findById (long numCours);
     void delete (long numCours);
+
 }

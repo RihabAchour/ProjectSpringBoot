@@ -18,13 +18,17 @@ import java.util.List;
 public class InscriptionController {
     private final IInscriptionService Inscriptionservice;
     private final ISkieurService iSkieurService;
-    @PostMapping("/{numSkieur}")
+   /* @PostMapping("/{numSkieur}")
     public ResponseEntity<Inscription> addInscriptionToSkieur(@PathVariable long numSkieur, @RequestBody Inscription inscription) {
         Skieur skieur = iSkieurService.findById(numSkieur);
         inscription.setSkieur(skieur);
         Inscription Iinscription = Inscriptionservice.addInscription(inscription);
         return new ResponseEntity<>(Iinscription, HttpStatus.CREATED);
-    }
+    }*/
+   @PostMapping("/{numSkieur}")
+   public Inscription addRegistrationAndAssignToSkier( @RequestBody Inscription inscription,@PathVariable long numSkieur){
+       return Inscriptionservice.addRegistrationAndAssignToSkier(inscription,numSkieur);
+   }
     @PutMapping
     public Inscription updateInscription (@RequestBody  Inscription inscription){
         return Inscriptionservice.updateInscription(inscription);

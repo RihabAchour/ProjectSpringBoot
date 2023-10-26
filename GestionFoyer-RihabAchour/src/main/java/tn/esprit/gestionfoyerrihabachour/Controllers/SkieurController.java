@@ -3,6 +3,7 @@ package tn.esprit.gestionfoyerrihabachour.Controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.gestionfoyerrihabachour.Service.ISkieurService;
+import tn.esprit.gestionfoyerrihabachour.entities.Inscription;
 import tn.esprit.gestionfoyerrihabachour.entities.Skieur;
 
 import java.util.List;
@@ -35,5 +36,6 @@ public class SkieurController {
     public List<Skieur> findAll(){
         return skieurService.findAll() ;
     }
+
 
 }

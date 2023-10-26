@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import tn.esprit.gestionfoyerrihabachour.Repositories.InscriptionRepo;
 import tn.esprit.gestionfoyerrihabachour.Repositories.SkieurRepo;
 import tn.esprit.gestionfoyerrihabachour.entities.Inscription;
+import tn.esprit.gestionfoyerrihabachour.entities.Skieur;
 
 import java.util.List;
 @Service
@@ -37,5 +38,11 @@ public class IInscriptionServiceImp implements IInscriptionService{
     @Override
     public void delete(long numInscription) {
   inscriptionRepo.deleteById(numInscription);
+    }
+    @Override
+    public Inscription addRegistrationAndAssignToSkier(Inscription inscription, long numSkieur) {
+        Skieur skieur=skieurRepo.findById(numSkieur).orElse(null);
+        inscription.setSkieur(skieur);
+        return inscriptionRepo.save(inscription);
     }
 }

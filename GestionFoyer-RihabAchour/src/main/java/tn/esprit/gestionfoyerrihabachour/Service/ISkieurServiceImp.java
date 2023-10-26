@@ -3,7 +3,9 @@ package tn.esprit.gestionfoyerrihabachour.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.gestionfoyerrihabachour.Repositories.InscriptionRepo;
 import tn.esprit.gestionfoyerrihabachour.Repositories.SkieurRepo;
+import tn.esprit.gestionfoyerrihabachour.entities.Inscription;
 import tn.esprit.gestionfoyerrihabachour.entities.Skieur;
 
 import java.util.List;
@@ -36,4 +38,6 @@ public class ISkieurServiceImp implements ISkieurService {
     public void delete(long numSkieur) {
   skieurRepo.deleteById(numSkieur);
     }
+
+
 }

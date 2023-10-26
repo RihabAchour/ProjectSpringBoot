@@ -30,4 +30,5 @@ public class Moniteur {
     @OneToMany(cascade = CascadeType.ALL)
     Set <Cours> cours;
 
+
 }

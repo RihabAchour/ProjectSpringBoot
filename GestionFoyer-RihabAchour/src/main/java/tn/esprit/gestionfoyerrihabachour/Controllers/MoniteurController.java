@@ -35,6 +35,8 @@ public class MoniteurController {
     public List<Moniteur> findAll(){
         return iMoniteurService.findAll() ;
     }
-
-
+@PostMapping("/{numCours}")
+    public Moniteur addInstructorAndAssignToCourse(@RequestBody Moniteur moniteur,@PathVariable long numCours){
+        return iMoniteurService.addInstructorAndAssignToCourse(moniteur,numCours);
+    }
 }

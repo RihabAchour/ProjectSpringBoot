@@ -2,15 +2,20 @@ package tn.esprit.gestionfoyerrihabachour.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.gestionfoyerrihabachour.Repositories.CoursRepo;
 import tn.esprit.gestionfoyerrihabachour.Repositories.MoniteurRepo;
+import tn.esprit.gestionfoyerrihabachour.entities.Cours;
 import tn.esprit.gestionfoyerrihabachour.entities.Moniteur;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class IMoniteurServiceImp implements IMoniteurService{
     @Autowired
     MoniteurRepo moniteurRepo;
+    CoursRepo coursRepo;
     @Override
     public Moniteur addMoniteur(Moniteur moniteur) {
         return moniteurRepo.save(moniteur);
@@ -34,5 +39,16 @@ public class IMoniteurServiceImp implements IMoniteurService{
     @Override
     public void delete(long numMoniteur) {
   moniteurRepo.deleteById(numMoniteur);
+    }
+
+    @Override
+    public Moniteur addInstructorAndAssignToCourse(Moniteur moniteur, long numCours) {
+        Cours cours= coursRepo.findById(numCours).orElse(null);
+        Set<Cours> coursSet=new HashSet<>();
+        coursSet.add(cours);
+        moniteur.setCours(coursSet);
+        return moniteurRepo.save(moniteur);
+
+
     }
 }

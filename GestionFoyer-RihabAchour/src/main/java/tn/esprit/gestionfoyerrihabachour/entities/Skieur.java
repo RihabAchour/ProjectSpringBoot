@@ -1,5 +1,6 @@
 package tn.esprit.gestionfoyerrihabachour.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -28,6 +29,7 @@ public class Skieur {
     String Ville;
     @ManyToMany(cascade = CascadeType.ALL)
     Set<Piste> pisteSet;
+    @JsonIgnore
     @OneToMany(mappedBy="Skieur")//la meme mot que dans la classe inscription
     Set <Inscription> inscriptionSet;
     @OneToOne(cascade = CascadeType.ALL)

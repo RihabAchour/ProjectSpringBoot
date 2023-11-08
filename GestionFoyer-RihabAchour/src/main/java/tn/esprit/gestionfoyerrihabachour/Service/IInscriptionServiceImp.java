@@ -3,8 +3,10 @@ package tn.esprit.gestionfoyerrihabachour.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.gestionfoyerrihabachour.Repositories.CoursRepo;
 import tn.esprit.gestionfoyerrihabachour.Repositories.InscriptionRepo;
 import tn.esprit.gestionfoyerrihabachour.Repositories.SkieurRepo;
+import tn.esprit.gestionfoyerrihabachour.entities.Cours;
 import tn.esprit.gestionfoyerrihabachour.entities.Inscription;
 import tn.esprit.gestionfoyerrihabachour.entities.Skieur;
 
@@ -15,6 +17,7 @@ public class IInscriptionServiceImp implements IInscriptionService{
 
      private final InscriptionRepo inscriptionRepo;
  private final SkieurRepo skieurRepo;
+ private final CoursRepo coursRepo;
     @Override
     public Inscription addInscription(Inscription inscription) {
         return inscriptionRepo.save(inscription);
@@ -40,9 +43,19 @@ public class IInscriptionServiceImp implements IInscriptionService{
   inscriptionRepo.deleteById(numInscription);
     }
     @Override
-    public Inscription addRegistrationAndAssignToSkier(Inscription inscription, long numSkieur) {
+    public Inscription addInscriptionAndAssignToSkier(Inscription inscription, long numSkieur) {
         Skieur skieur=skieurRepo.findById(numSkieur).orElse(null);
         inscription.setSkieur(skieur);
         return inscriptionRepo.save(inscription);
     }
+
+    @Override
+    public Inscription assignInscriptionToCourse(long numInscription, long numCours) {
+        Cours cours=coursRepo.findById(numCours).orElse(null);
+       Inscription inscription=inscriptionRepo.findById(numInscription).orElse(null);
+       inscription.setCours(cours);
+       return inscriptionRepo.save(inscription);
+
+    }
+
 }

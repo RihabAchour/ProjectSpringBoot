@@ -1,6 +1,7 @@
 package tn.esprit.gestionfoyerrihabachour.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,8 +23,10 @@ public class Inscription {
     long numInscription;
     int numSemaine;
     @ManyToOne
+    @JsonIgnore
     Cours cours;
 
     @ManyToOne
+    @JsonIgnore
     Skieur Skieur;
 }

@@ -26,15 +26,19 @@ public class InscriptionController {
         return new ResponseEntity<>(Iinscription, HttpStatus.CREATED);
     }*/
    @PostMapping("/{numSkieur}")
-   public Inscription addRegistrationAndAssignToSkier( @RequestBody Inscription inscription,@PathVariable long numSkieur){
-       return Inscriptionservice.addRegistrationAndAssignToSkier(inscription,numSkieur);
+   public Inscription addInscriptionAndAssignToSkier( @RequestBody Inscription inscription,@PathVariable long numSkieur){
+       return Inscriptionservice.addInscriptionAndAssignToSkier(inscription,numSkieur);
+   }
+    @PostMapping("/{numInscription}/{numCours}")
+   public Inscription assignInscriptionToCourse(@PathVariable long numInscription, @PathVariable long numCours){
+       return Inscriptionservice.assignInscriptionToCourse(numInscription,numCours);
    }
     @PutMapping
     public Inscription updateInscription (@RequestBody  Inscription inscription){
         return Inscriptionservice.updateInscription(inscription);
     }
     @DeleteMapping("/{numInscription}")
-    public void delete(@RequestBody long  numInscription)    {
+    public void delete(@PathVariable long  numInscription)    {
         Inscriptionservice.delete(numInscription);
     }
     @GetMapping("/{numInscription}")

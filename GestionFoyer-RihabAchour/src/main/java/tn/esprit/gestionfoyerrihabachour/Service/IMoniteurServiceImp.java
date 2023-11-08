@@ -44,9 +44,12 @@ public class IMoniteurServiceImp implements IMoniteurService{
     @Override
     public Moniteur addInstructorAndAssignToCourse(Moniteur moniteur, long numCours) {
         Cours cours= coursRepo.findById(numCours).orElse(null);
+        //namel intialisation lil set w baed n3abi bil cours
+        //les 3 ligne suivants sont pour l'affectation de cours lil moniteur
         Set<Cours> coursSet=new HashSet<>();
         coursSet.add(cours);
         moniteur.setCours(coursSet);
+        //ajout de moniteur donc il va etre managed-entity
         return moniteurRepo.save(moniteur);
 
 

@@ -25,9 +25,10 @@ public class SkieurController {
         return skieurService.updateSkieur(skieur);
     }
     @DeleteMapping("/{numSkieur}")
-    public void delete(@RequestBody long  numSkieur)    {
+    public void delete(@PathVariable long numSkieur) {
         skieurService.delete(numSkieur);
     }
+
     @GetMapping("/{numSkieur}")
     public Skieur FindById(@PathVariable long numSkieur){
         return skieurService. findById(numSkieur);
@@ -36,6 +37,13 @@ public class SkieurController {
     public List<Skieur> findAll(){
         return skieurService.findAll() ;
     }
-
+    @PutMapping ("/{numSkieur}/{numPiste}")
+   public  Skieur assignSkierToPiste(@PathVariable long numSkieur, @PathVariable long numPiste){
+return skieurService.assignSkierToPiste(numSkieur,numPiste);
+    }
+    @PostMapping("/{numCours}")
+    public Skieur addSkierAndAssignToCourse(Skieur skieur, Long numCours){
+        return skieurService.addSkierAndAssignToCourse(skieur,numCours);
+    }
 
 }

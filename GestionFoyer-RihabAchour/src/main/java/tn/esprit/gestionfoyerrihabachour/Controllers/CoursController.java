@@ -22,7 +22,7 @@ public class CoursController {
         return coursService.updateCours(cours)
 ;    }
     @DeleteMapping("/{numCours}")
-    public void delete(@RequestBody long  numCours)    {
+    public void delete(@PathVariable long  numCours)    {
         coursService.delete(numCours);
     }
     @GetMapping("/{numCours}")

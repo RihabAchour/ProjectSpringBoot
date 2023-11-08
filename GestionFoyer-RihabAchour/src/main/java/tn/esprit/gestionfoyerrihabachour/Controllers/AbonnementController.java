@@ -23,7 +23,7 @@ public class AbonnementController {
         return iAbonnementService.updateAbonnement(abonnement)
                 ;    }
     @DeleteMapping("/{numAbonnement}")
-    public void delete(@RequestBody long  numCours)    {
+    public void delete(@PathVariable  long  numCours)    {
         iAbonnementService.delete(numCours);
     }
     @GetMapping("/{numAbonnement}")

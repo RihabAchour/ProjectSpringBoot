@@ -24,7 +24,7 @@ public class MoniteurController {
     public Moniteur updateMoniteur(@RequestBody  Moniteur moniteur){
         return iMoniteurService.updateMoniteur(moniteur);  }
     @DeleteMapping("/{numMoniteur}")
-    public void delete(@RequestBody long  numMoniteur)    {
+    public void delete(@PathVariable long  numMoniteur)    {
         iMoniteurService.delete(numMoniteur);
     }
     @GetMapping("/{numMoniteur}")

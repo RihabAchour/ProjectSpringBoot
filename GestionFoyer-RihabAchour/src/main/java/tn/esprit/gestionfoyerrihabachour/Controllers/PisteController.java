@@ -24,7 +24,7 @@ public class PisteController {
     public Piste updatePiste(@RequestBody  Piste piste){
         return iPisteService.updatePiste(piste);    }
     @DeleteMapping("/{numPiste}")
-    public void delete(@RequestBody long  numPiste)    {
+    public void delete(@PathVariable long  numPiste)    {
         iPisteService.delete(numPiste);
     }
     @GetMapping("/{numPiste}")

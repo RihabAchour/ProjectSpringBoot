@@ -11,5 +11,7 @@ public interface ISkieurService {
     List<Skieur> findAll();
     Skieur findById (long numSkieur);
     void delete (long numSkieur);
+     Skieur assignSkierToPiste(long numSkieur,long numPiste);
+    Skieur addSkierAndAssignToCourse(Skieur skieur, long numCours);
 
 }

@@ -11,6 +11,8 @@ public interface IInscriptionService {
     List<Inscription> findAll();
     Inscription findById (long numInscription);
     void delete (long numInscription);
-    Inscription addRegistrationAndAssignToSkier(Inscription inscription, long numSkieur);
+    Inscription addInscriptionAndAssignToSkier(Inscription inscription, long numSkieur);
+    Inscription assignInscriptionToCourse(long numInscription, long numCours);
+
 
 }

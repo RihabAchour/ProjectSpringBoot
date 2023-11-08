@@ -29,7 +29,7 @@ public class Skieur {
     String Ville;
     @ManyToMany(cascade = CascadeType.ALL)
     Set<Piste> pisteSet;
-    @JsonIgnore
+
     @OneToMany(mappedBy="Skieur")//la meme mot que dans la classe inscription
     Set <Inscription> inscriptionSet;
     @OneToOne(cascade = CascadeType.ALL)

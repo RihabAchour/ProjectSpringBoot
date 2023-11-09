@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import tn.esprit.gestionfoyerrihabachour.entities.Cours;
 
 import java.util.List;
-
 public interface CoursRepo extends CrudRepository<Cours,Long> {
  //nativequery
 
@@ -15,8 +14,8 @@ public interface CoursRepo extends CrudRepository<Cours,Long> {
             "FROM cours c" +
             "JOIN moniteur_cours mc on c.num_cours=mc.cours_num_cours" +
             "JOIN moniteur m on m.id=mc.moniteur_id" +
-            "WHERE m.nomm=?1 and m.prenom= :prenomM", nativeQuery = true)
-List <Cours> findByMoniteurNomM(String nomM , @Param("prenomM")String prenom );
+            "WHERE m.nomm=?1 and m.prenomm=?2", nativeQuery = true)
+List <Cours> findByMoniteurNomM(String nomM , String prenom );
 
 
 ///JPQl
@@ -26,4 +25,5 @@ List <Cours> findByMoniteurNomM(String nomM , @Param("prenomM")String prenom );
                     " JOIN Moniteur m on c member m.cours " +
                     "WHERE m.nomM=?1 and m.prenomM= :prenomM")
     List <Cours> findByMoniteurNomMJPQL(String nomM , @Param("prenomM")String prenom );
+
 }

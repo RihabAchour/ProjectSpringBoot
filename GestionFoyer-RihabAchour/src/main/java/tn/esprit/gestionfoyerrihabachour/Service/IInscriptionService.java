@@ -13,6 +13,7 @@ public interface IInscriptionService {
     void delete (long numInscription);
     Inscription addInscriptionAndAssignToSkier(Inscription inscription, long numSkieur);
     Inscription assignInscriptionToCourse(long numInscription, long numCours);
-
+//mazlt makhdmtch
+Inscription addRegistrationAndAssignToSkierAndCourse(Inscription inscription, Long numSkieur, Long numCours);
 
 }

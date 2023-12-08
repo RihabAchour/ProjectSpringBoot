@@ -1,6 +1,5 @@
 package tn.esprit.gestionfoyerrihabachour.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,7 +22,7 @@ public class Inscription {
     long numInscription;
     int numSemaine;
     @ManyToOne
-    @JsonIgnore
+    @JsonIgnore//ce champ ne doit pas être inclus lors de la sérialisation JSON
     Cours cours;
 
     @ManyToOne

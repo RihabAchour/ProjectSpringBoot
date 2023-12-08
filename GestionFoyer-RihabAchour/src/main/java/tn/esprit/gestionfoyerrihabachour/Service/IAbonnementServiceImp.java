@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.gestionfoyerrihabachour.Repositories.AbonnementRepo;
 import tn.esprit.gestionfoyerrihabachour.entities.Abonnement;
+import tn.esprit.gestionfoyerrihabachour.entities.enums.TypeAbonnement;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
+
 @Service
 public class IAbonnementServiceImp implements IAbonnementService {
     @Autowired
@@ -33,5 +37,25 @@ public class IAbonnementServiceImp implements IAbonnementService {
     @Override
     public void delete(long numAbonnement) {
      abonnementRepo.deleteById(numAbonnement);
+    }
+
+    @Override
+    public Set<Abonnement> getAbonnementByType(TypeAbonnement type) {
+        return null;
+    }
+
+    @Override
+    public List<Abonnement> retrieveAbonnementByDates(LocalDate startDate, LocalDate endDate) {
+        return null;
+    }
+
+    @Override
+    public void retrieveSubscriptions() {
+
+    }
+
+    @Override
+    public void showMonthlyRecurringRevenue() {
+
     }
 }

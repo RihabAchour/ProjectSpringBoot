@@ -1,14 +1,9 @@
 package tn.esprit.gestionfoyerrihabachour.Controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.gestionfoyerrihabachour.Service.IInscriptionService;
-import tn.esprit.gestionfoyerrihabachour.Service.ISkieurService;
-import tn.esprit.gestionfoyerrihabachour.Service.ISkieurServiceImp;
 import tn.esprit.gestionfoyerrihabachour.entities.Inscription;
-import tn.esprit.gestionfoyerrihabachour.entities.Skieur;
 
 
 import java.util.List;
@@ -17,7 +12,6 @@ import java.util.List;
 @RequestMapping("inscription")
 public class InscriptionController {
     private final IInscriptionService Inscriptionservice;
-    private final ISkieurService iSkieurService;
    /* @PostMapping("/{numSkieur}")
     public ResponseEntity<Inscription> addInscriptionToSkieur(@PathVariable long numSkieur, @RequestBody Inscription inscription) {
         Skieur skieur = iSkieurService.findById(numSkieur);

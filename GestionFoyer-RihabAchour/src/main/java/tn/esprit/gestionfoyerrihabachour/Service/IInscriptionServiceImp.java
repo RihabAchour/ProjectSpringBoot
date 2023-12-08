@@ -1,7 +1,6 @@
 package tn.esprit.gestionfoyerrihabachour.Service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.gestionfoyerrihabachour.Repositories.CoursRepo;
 import tn.esprit.gestionfoyerrihabachour.Repositories.InscriptionRepo;
@@ -54,8 +53,14 @@ public class IInscriptionServiceImp implements IInscriptionService{
         Cours cours=coursRepo.findById(numCours).orElse(null);
        Inscription inscription=inscriptionRepo.findById(numInscription).orElse(null);
        inscription.setCours(cours);
+
        return inscriptionRepo.save(inscription);
 
+    }
+
+    @Override
+    public Inscription addRegistrationAndAssignToSkierAndCourse(Inscription inscription, Long numSkieur, Long numCours) {
+        return null;
     }
 
 }

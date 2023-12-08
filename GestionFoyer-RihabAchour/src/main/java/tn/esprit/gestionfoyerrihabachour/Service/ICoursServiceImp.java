@@ -1,7 +1,6 @@
 package tn.esprit.gestionfoyerrihabachour.Service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.gestionfoyerrihabachour.Repositories.CoursRepo;
 import tn.esprit.gestionfoyerrihabachour.entities.Cours;

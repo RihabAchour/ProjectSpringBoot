@@ -1,6 +1,5 @@
 package tn.esprit.gestionfoyerrihabachour.Controllers;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.gestionfoyerrihabachour.Service.IAbonnementService;
@@ -20,8 +19,7 @@ public class AbonnementController {
     }
     @PutMapping
     public Abonnement updateAbonnement (@RequestBody  Abonnement abonnement){
-        return iAbonnementService.updateAbonnement(abonnement)
-                ;    }
+        return iAbonnementService.updateAbonnement(abonnement);    }
     @DeleteMapping("/{numAbonnement}")
     public void delete(@PathVariable  long  numCours)    {
         iAbonnementService.delete(numCours);

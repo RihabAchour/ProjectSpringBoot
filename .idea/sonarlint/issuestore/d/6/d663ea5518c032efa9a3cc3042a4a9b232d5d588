@@ -1,0 +1,5 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(÷í°ä
+w	java:S116"]Rename this field "Inscriptionservice" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãš˜·úÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(¦žÑº
+c	java:S100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Ý¢Ž

@@ -1,6 +1,5 @@
 package tn.esprit.gestionfoyerrihabachour.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -28,7 +27,7 @@ public class Skieur {
     Date dateNaissance;
     String Ville;
     @ManyToMany(cascade = CascadeType.ALL)
-    Set<Piste> pisteSet;
+    Set <Piste> pisteSet;
 
     @OneToMany(mappedBy="Skieur")//la meme mot que dans la classe inscription
     Set <Inscription> inscriptionSet;

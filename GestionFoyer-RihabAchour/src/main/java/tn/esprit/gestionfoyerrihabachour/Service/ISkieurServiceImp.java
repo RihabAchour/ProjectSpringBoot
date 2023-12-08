@@ -1,7 +1,10 @@
 package tn.esprit.gestionfoyerrihabachour.Service;
 
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -13,11 +16,11 @@ import tn.esprit.gestionfoyerrihabachour.entities.Cours;
 import tn.esprit.gestionfoyerrihabachour.entities.Inscription;
 import tn.esprit.gestionfoyerrihabachour.entities.Piste;
 import tn.esprit.gestionfoyerrihabachour.entities.Skieur;
+import tn.esprit.gestionfoyerrihabachour.entities.enums.TypeAbonnement;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
+@Builder
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class ISkieurServiceImp implements ISkieurService {
@@ -56,7 +59,6 @@ public class ISkieurServiceImp implements ISkieurService {
         Skieur skieur = skieurRepo.findById(numSkieur).orElse(null);
         Piste piste = pisteRepo.findById(numPiste).orElse(null);
 
-
         //jebna les pistes l9dom w zedna lil liste jdida
         skieur.getPisteSet().add(piste);
         //les 3 lignes y3awthou ligne eli 9bal
@@ -85,5 +87,17 @@ public class ISkieurServiceImp implements ISkieurService {
        return skieur;
    }
 
+    @Override
+    public List<Skieur> retrieveSkiersBySubscriptionType(TypeAbonnement typeAbonnement) {
+        return null;
+    }
 
+    //Skieur s= Skieur.builder().nomS("rihab").build();
+// @Scheduled(fixedRate = 60000)//va lancer lamethode chaque minute
+   //pour l'activation de scheduling on doit ajouter @EnableScheduling dans le classe main
+    @Scheduled(fixedDelay = 60000)
+    public void testSchedule() {
+        log.info("Test Schedule");}
+@Scheduled(cron = "10000")
+public void cron (){}
 }

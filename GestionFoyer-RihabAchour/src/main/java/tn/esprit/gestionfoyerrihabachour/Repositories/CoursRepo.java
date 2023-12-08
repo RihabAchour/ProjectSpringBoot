@@ -23,7 +23,7 @@ List <Cours> findByMoniteurNomM(String nomM , String prenom );
              "SELECT c" +
                     " FROM Cours c" +
                     " JOIN Moniteur m on c member m.cours " +
-                    "WHERE m.nomM=?1 and m.prenomM= :prenomM")
-    List <Cours> findByMoniteurNomMJPQL(String nomM , @Param("prenomM")String prenom );
+                    "WHERE m.nomM=?1 and m.prenomM=?2")
+    List <Cours> findByMoniteurNomMJPQL(String nomM ,  String prenom  );
 
 }

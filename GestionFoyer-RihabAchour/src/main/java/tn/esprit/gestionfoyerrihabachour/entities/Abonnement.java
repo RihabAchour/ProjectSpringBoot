@@ -20,7 +20,7 @@ public class Abonnement {
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE) //ignorer la creation du setter pour l'id
- long numAbon;
+    long numAbon;
     Date datedebut;
     Date dateFin;
     Float PrixAbon;
